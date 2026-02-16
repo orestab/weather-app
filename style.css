@@ -1,0 +1,221 @@
+:root {
+  --glass: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: var(--text);
+}
+.app-container-none {
+  display: none;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Трохи менший відступ між блоками */
+}
+
+/* Пошук */
+.search-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px; /* Зменшено висоту інпуту */
+  border-radius: 15px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+
+button {
+  background: white;
+  border: none;
+  width: 45px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+/* ГОЛОВНА КАРТКА (Зменшена) */
+.main-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 25px;
+  padding: 20px; /* Менший внутрішній відступ */
+  text-align: center;
+}
+
+.location h1 {
+  font-size: 1.8rem; /* Менший шрифт міста */
+  font-weight: 600;
+}
+
+.weather-focus {
+  display: flex; /* Розташуємо іконку та градуси в ряд для компактності */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+#main-icon {
+  width: 80px; /* Значно менша іконка */
+  height: 80px;
+}
+
+.temp-display {
+  font-size: 3.5rem; /* Менший розмір температури */
+  font-weight: 700;
+}
+
+#main-desc {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+.main-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.stat {
+  font-size: 0.8rem;
+}
+
+/* ПРОГНОЗ (Збільшений) */
+.forecast-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px; /* Більший відступ між картками */
+}
+
+.f-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 20px 8px; /* Більше вертикального простору */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.f-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-5px); /* Ефект при наведенні */
+}
+
+.f-day {
+  font-size: 0.9rem; /* Більший текст дня */
+  font-weight: 700;
+}
+
+.f-card img {
+  width: 50px; /* Більші іконки прогнозу */
+  height: 50px;
+}
+
+.f-temp {
+  font-size: 1.1rem; /* Більший шрифт температури */
+  font-weight: 800;
+}
+
+.hourly-forecast {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1); /* Скляний фон */
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-x: auto; /* Якщо екран малий, можна буде гортати */
+}
+
+.hourly-card {
+  flex: 1;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 5px;
+  background: rgba(255, 255, 255, 0.05); /* Трохи світліше за фон */
+  border-radius: 18px;
+  transition: transform 0.3s ease;
+}
+
+.hourly-card:hover {
+  transform: translateY(-5px); /* Ефект при наведенні */
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hourly-time {
+  font-size: 0.85rem;
+  color: #efefef;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.hourly-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.hourly-temp {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+/* Приховуємо скроллбар для краси */
+.hourly-forecast::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  .forecast-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px; /* Щоб влізло на дуже вузькі екрани */
+  }
+}

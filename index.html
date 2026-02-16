@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Погода</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="search-wrapper">
+        <input type="text" id="city-input" placeholder="Пошук міста..." />
+        <button id="search-btn"><i data-lucide="search"></i></button>
+      </div>
+
+      <div id="app-container-id" class="app-container-none">
+        <div class="main-card" id="weather-card">
+          <div class="location">
+            <h1 id="city-name"></h1>
+            <p id="current-date"></p>
+          </div>
+
+          <div class="weather-focus">
+            <img
+              id="main-icon"
+              src="https://openweathermap.org/img/wn/13n@4x.png"
+              alt="icon"
+            />
+            <div class="temp-display"><span id="main-temp"></span>°C</div>
+            <p id="main-desc"></p>
+          </div>
+
+          <div class="main-stats">
+            <div class="stat">
+              <i data-lucide="droplets"></i>
+              <span id="main-humidity"></span>%
+            </div>
+            <div class="stat">
+              <i data-lucide="wind"></i>
+              <span id="main-wind"></span> м/с
+            </div>
+            <div class="stat">
+              <i data-lucide="user"></i>
+              <span id="feels-like"></span>°C
+            </div>
+          </div>
+        </div>
+
+        <div class="forecast-section">
+          <h3>Прогноз на 5 днів</h3>
+          <div class="forecast-grid" id="forecast-container">
+            <div class="f-card">
+              <span class="f-day"></span>
+              <img src="https://openweathermap.org/img/wn/01d.png" alt="icon" />
+              <span class="f-temp"></span>
+            </div>
+            <div class="f-card">
+              <span class="f-day"></span>
+              <img src="https://openweathermap.org/img/wn/02d.png" alt="icon" />
+              <span class="f-temp"></span>
+            </div>
+            <div class="f-card">
+              <span class="f-day"></span>
+              <img src="https://openweathermap.org/img/wn/03d.png" alt="icon" />
+              <span class="f-temp"></span>
+            </div>
+            <div class="f-card">
+              <span class="f-day"></span>
+              <img src="https://openweathermap.org/img/wn/13d.png" alt="icon" />
+              <span class="f-temp"></span>
+            </div>
+            <div class="f-card">
+              <span class="f-day"></span>
+              <img src="https://openweathermap.org/img/wn/04d.png" alt="icon" />
+              <span class="f-temp"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
